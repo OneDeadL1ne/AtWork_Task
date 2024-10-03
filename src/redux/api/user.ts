@@ -1,15 +1,18 @@
 
 import { api } from './';
 
-import { UserInterface } from '@/types/user';
+import { FetchUserInterface, UserInterface } from '@/types/user';
 
 const usersApi = api.injectEndpoints({
 	endpoints: (builder) => ({
-		getUsers: builder.mutation<Array<UserInterface>, void>({
-			query: () => ({ url: ``, method: 'GET' }),
-			invalidatesTags: ['User'],
+		getUsers: builder.query<Array<FetchUserInterface>, void>({
+			query: () => ({ url: `/users`, method: 'GET' }),
+			providesTags: ['User'],
 		}),
-		
+		getUser: builder.query<FetchUserInterface, number>({
+			query: (id) => ({ url: `/users/${id}`, method: 'GET' }),
+			providesTags: ['User'],
+		}),
 
 		updateUser: builder.mutation<UserInterface, Partial<UserInterface>>({
 			query: (body) => ({
@@ -36,7 +39,8 @@ const usersApi = api.injectEndpoints({
 });
 
 export const {
-	useGetUsersMutation,
+	useGetUserQuery,
+	useGetUsersQuery,
 	useChangeUserStatusMutation,
 	useUpdateUserMutation,
 

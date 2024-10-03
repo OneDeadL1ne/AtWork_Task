@@ -57,7 +57,7 @@ module.exports = {
 				sans: ["Inter Tight", "ui-sans-serif", "system-ui"],
 			},
 			colors: {
-				base: "#FF6B6B",
+				base: "",
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",
@@ -104,13 +104,6 @@ module.exports = {
 					primary: "var(--primary)",
 				},
 				pagination: "var(--pagination)",
-				chart: {
-					1: "hsl(var(--chart-1))",
-					2: "hsl(var(--chart-2))",
-					3: "hsl(var(--chart-3))",
-					4: "hsl(var(--chart-4))",
-					5: "hsl(var(--chart-5))",
-				},
 			},
 			borderRadius: {
 				lg: "var(--radius)",
@@ -132,16 +125,6 @@ module.exports = {
 					},
 					to: {
 						height: "0",
-					},
-				},
-				slideIn: {
-					from: {
-						opacity: "1",
-						transform: "translateX(0)",
-					},
-					to: {
-						opacity: "0",
-						transform: "translateX(100%)",
 					},
 				},
 			},
